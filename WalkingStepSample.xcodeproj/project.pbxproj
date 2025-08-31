@@ -294,6 +294,9 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K75PB9VKYT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkingStepSample/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Reason why app needs location for iOS 11+";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Reason why app needs location when in use";
+				INFOPLIST_KEY_NSMotionUsageDescription = "歩数を読み取ります";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -329,6 +332,9 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkingStepSample/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Reason why app needs location for iOS 11+";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Reason why app needs location when in use";
+				INFOPLIST_KEY_NSMotionUsageDescription = "歩数を読み取ります";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

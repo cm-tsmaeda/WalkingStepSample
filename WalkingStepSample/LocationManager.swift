@@ -10,6 +10,8 @@ import CoreLocation
 class LocationManager: NSObject, CLLocationManagerDelegate {
     private var locationManger = CLLocationManager()
     
+    private var _lastNumberOfSteps: NSNumber = 0
+    
     static var shared = LocationManager()
     private override init() {
         
@@ -17,6 +19,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func setup() {
         locationManger.delegate = self
+        // バックグラウンドでも位置情報更新をONにする
+        locationManger.allowsBackgroundLocationUpdates = true
+        locationManger.pausesLocationUpdatesAutomatically = false
         
         let status = locationManger.authorizationStatus
         switch status {
@@ -57,11 +62,24 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func startUpdateLocation() {
+        _lastNumberOfSteps = PedometerManager.shared.numberOfSteps
         locationManger.startUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("didUpdateLocations locations=\(locations)")
+        var log = ""
+        locations.forEach { location in
+            let longitude =  location.coordinate.longitude
+            let latitude = location.coordinate.latitude
+            log += "long \(longitude), lat \(latitude)"
+        }
+        let steps = PedometerManager.shared.numberOfSteps
+        // 歩数が違うときだけプッシュ通知
+        if steps != _lastNumberOfSteps {
+            _lastNumberOfSteps = steps
+            NotificationManager.shared.sendNotification(title: "歩数: \(steps), 位置情報", body: log)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

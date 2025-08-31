@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         statusLabal.text = ""
-        NotificationManager().requestPermission()
+        NotificationManager.shared.requestPermission()
         PedometerManager.shared.delegate = self
         LocationManager.shared.setup()
     }
@@ -45,7 +45,7 @@ extension ViewController: PedometerManagerDelegate {
     func pedometerManager(_ manager: PedometerManager, didUpdateNumberOfSteps steps: NSNumber) {
         let logText = "歩数: \(steps)"
         print("dbg steps \(steps)")
-        NotificationManager().sendNotification(title: "歩数更新", body: logText)
+        //NotificationManager.shared.sendNotification(title: "歩数更新", body: logText)
         Task { @MainActor in
             self.updateLogLabelText(text: logText)
         }
