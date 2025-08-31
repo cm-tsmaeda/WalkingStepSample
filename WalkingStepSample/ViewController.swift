@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     @IBAction func didTapStopButton() {
         print("stop")
         PedometerManager.shared.stopUpdates()
+        LocationManager.shared.stopUpdateLocation()
         statusLabal.text = "測定終了しました"
     }
     

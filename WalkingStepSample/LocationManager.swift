@@ -66,6 +66,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManger.startUpdatingLocation()
     }
     
+    func stopUpdateLocation() {
+        locationManger.stopUpdatingLocation()
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("didUpdateLocations locations=\(locations)")
         var log = ""
