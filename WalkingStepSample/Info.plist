@@ -4,6 +4,10 @@
 <dict>
     <key>NSMotionUsageDescription</key>
     <string>歩数を読み取ります</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Reason why app needs location for iOS 11+</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Reason why app needs location when in use</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

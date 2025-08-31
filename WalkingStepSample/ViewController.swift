@@ -20,12 +20,14 @@ class ViewController: UIViewController {
         statusLabal.text = ""
         NotificationManager().requestPermission()
         PedometerManager.shared.delegate = self
+        LocationManager.shared.setup()
     }
 
     @IBAction func didTapStartButton() {
         print("start")
         statusLabal.text = "測定開始しました"
         PedometerManager.shared.startUpdates()
+        LocationManager.shared.startUpdateLocation()
     }
     
     @IBAction func didTapStopButton() {
