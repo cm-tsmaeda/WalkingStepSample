@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         statusLabal.text = ""
+        NotificationManager().requestPermission()
         // Do any additional setup after loading the view.
     }
 
@@ -48,6 +49,7 @@ class ViewController: UIViewController {
                 let steps = data.numberOfSteps
                 let logText = "歩数: \(steps)"
                 print("dbg steps \(steps)")
+                NotificationManager().sendNotification(title: "歩数更新", body: logText)
                 Task { @MainActor in
                     self.updateLogLabelText(text: logText)
                 }
