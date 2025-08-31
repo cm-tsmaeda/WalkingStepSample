@@ -8,6 +8,9 @@
 import UIKit
 import CoreMotion
 
+// 参考
+// https://i-app-tec.com/ios/pedometer.html
+
 class ViewController: UIViewController {
 
     @IBOutlet private weak var logLabel: UILabel!
